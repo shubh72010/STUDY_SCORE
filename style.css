@@ -1,10 +1,15 @@
-/* Basic Reset & Body Styling */
+/* --- Global Styles & Base Reset --- */
+/* Import a cleaner font from Google Fonts (e.g., Poppins, Open Sans) */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap');
+
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #000000; /* Primary black background for the entire page */
-    color: #FFFFFF; /* Default text color for the body */
-    overflow-x: hidden; /* Prevent horizontal scroll */
+    font-family: 'Poppins', sans-serif; /* Using Poppins for a modern, clean look */
+    background-color: #F0F2F5; /* A very light grey for overall body background */
+    color: #333333; /* Default text color on light backgrounds */
+    line-height: 1.6;
+    overflow-x: hidden; /* Prevents horizontal scroll issues */
+    scroll-behavior: smooth; /* Smooth scrolling for anchor links */
 }
 
 /* --- Loading Screen Styles --- */
@@ -14,62 +19,38 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #000000; /* Black background for loading screen */
+    background-color: #000000; /* Primary black background for loading */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    z-index: 1000; /* Ensure it's on top */
+    z-index: 1000;
+    opacity: 1; /* Start visible */
+    transition: opacity 0.6s ease-out, visibility 0.6s ease-out; /* Smooth fade-out */
 }
 
 .loading-screen.hidden {
-    display: none; /* Hide the loading screen when content is loaded */
+    opacity: 0;
+    visibility: hidden; /* Hides it completely after transition */
 }
 
 .loading-animation {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: 20px; /* Space between loader and logo */
+    gap: 30px; /* Increased space for visual breathing room */
 }
 
-/* Book Loader Animation (simplified for now, will enhance) */
+/* Book Loader Animation */
 .book-loader {
-    width: 100px; /* Adjust size as needed */
-    height: 70px;
+    width: 130px; /* Slightly larger */
+    height: 90px;
     position: relative;
-    transform-style: preserve-3d;
-    perspective: 800px;
-}
-
-.page {
-    position: absolute;
-    width: 50%;
-    height: 100%;
-    background-color: #FFFFFF; /* White pages */
-    border: 2px solid #FF0000; /* Red border */
-    transform-origin: left center;
-    transition: transform 0.5s ease-in-out;
-}
-
-.page-left {
-    left: 0;
-    border-right: none;
-}
-
-.page-right {
-    right: 0;
-    border-left: none;
-}
-
-.spine {
-    position: absolute;
-    width: 10px;
-    height: 100%;
-    background-color: #FF0000; /* Red spine */
-    left: calc(50% - 5px);
-    z-index: 1;
+    border: 4px solid #FF0000; /* Thicker red border */
+    border-radius: 8px; /* Slightly more rounded corners */
+    overflow: hidden;
+    background-color: #FFFFFF;
+    box-shadow: 0 5px 15px rgba(255, 0, 0, 0.2); /* More prominent red shadow */
 }
 
 .filling-liquid {
@@ -77,67 +58,67 @@ body {
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 0; /* Starts empty */
-    background-color: #FF0000; /* Red liquid */
-    animation: fillBook 2s linear forwards infinite; /* Animation will fill the book */
+    height: 0;
+    background-color: #FF0000;
+    animation: fillBook 2.5s ease-in-out forwards infinite alternate;
     transform-origin: bottom;
-    z-index: 2; /* Ensure liquid is above pages */
 }
 
-/* Keyframe animation for filling the book */
 @keyframes fillBook {
     0% { height: 0; }
     100% { height: 100%; }
 }
 
-/* Placeholder for your logo */
 .loading-logo {
-    max-width: 150px; /* Adjust size */
+    max-width: 200px; /* Larger logo for impact */
     height: auto;
-    /* You'll add your actual logo image here */
+    filter: drop-shadow(0 0 8px rgba(255, 0, 0, 0.6)); /* Stronger red glow */
 }
 
-/* --- Main Content Styles --- */
+/* --- Main Content Layout --- */
 .main-content {
-    background-color: #FFFFFF; /* Main content area white */
-    min-height: 100vh; /* Ensure it takes full viewport height */
-    color: #333333; /* Default text color for main content */
+    background-color: #FFFFFF; /* Main content area is crisp white */
+    min-height: 100vh;
+    color: #333333;
+    display: flex;
+    flex-direction: column;
+    /* Removed .hidden here as JS will handle adding/removing it */
 }
 
-.main-content.hidden {
-    display: none; /* Hide main content until loaded */
-}
-
-/* Header Styling */
+/* --- Header Section --- */
 .header {
-    background-color: #000000; /* Black header background */
-    padding: 20px 0;
+    background-color: #000000; /* Black header */
+    padding: 30px 0; /* More vertical padding */
     text-align: center;
-    border-bottom: 3px solid #FF0000; /* Red border at the bottom */
+    border-bottom: 5px solid #FF0000; /* Even stronger red border */
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3); /* Darker shadow for depth */
 }
 
 .header-title {
     margin: 0;
-    font-size: 3em; /* Large font for the title */
-    letter-spacing: 2px;
+    font-size: 4em; /* Larger, more impactful title */
+    letter-spacing: 4px; /* More spacing for elegance */
+    text-transform: uppercase;
+    font-weight: 700; /* Poppins 700 is bold but not too heavy */
 }
 
 .header-study {
-    color: #FF0000; /* Red for 'STUDY' */
-    font-weight: bold;
+    color: #FF0000;
 }
 
 .header-core {
-    color: #FFFFFF; /* White for '§CORE' */
-    font-weight: bold;
+    color: #FFFFFF;
 }
 
-/* Navigation Bar */
+/* --- Navigation Bar --- */
 .navigation {
-    background-color: #333333; /* Dark grey for navigation */
-    padding: 10px 0;
+    background-color: #222222; /* Darker grey for navigation, distinct from header */
+    padding: 18px 0; /* More padding */
     text-align: center;
-    border-bottom: 2px solid #FF0000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25); /* Clearer shadow */
+    position: sticky; /* Make navigation stick to top */
+    top: 0;
+    z-index: 900; /* Ensure nav is above other content when scrolling */
 }
 
 .navigation ul {
@@ -146,72 +127,170 @@ body {
     margin: 0;
     display: flex;
     justify-content: center;
-    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
-}
-
-.navigation li {
-    margin: 0 15px;
+    flex-wrap: wrap;
+    gap: 35px; /* Increased gap between links */
 }
 
 .navigation a {
     text-decoration: none;
-    color: #FFFFFF; /* White links */
-    font-weight: bold;
-    font-size: 1.1em;
-    padding: 5px 10px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
-.navigation a:hover {
-    background-color: #FF0000; /* Red background on hover */
     color: #FFFFFF;
+    font-weight: 600;
+    font-size: 1.2em; /* Slightly larger font */
+    padding: 10px 20px; /* More padding for click area */
+    border-radius: 30px; /* Pill-shaped buttons for a modern look */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    border: 1px solid transparent; /* Prepare for border on hover */
 }
 
-/* Content Sections */
+.navigation a:hover,
+.navigation a:focus {
+    background-color: #FF0000;
+    transform: translateY(-3px); /* More pronounced lift */
+    box-shadow: 0 5px 15px rgba(255, 0, 0, 0.4); /* Stronger shadow on hover */
+    border-color: #FFFFFF; /* White border on hover for contrast */
+}
+
+/* --- Content Sections Container --- */
 .sections-container {
-    padding: 20px;
-    max-width: 960px; /* Max width for content */
-    margin: 20px auto; /* Center content with margin */
-    background-color: #FFFFFF; /* White background for content */
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    flex-grow: 1;
+    padding: 40px; /* More overall padding */
+    max-width: 1200px; /* Wider content area */
+    margin: 40px auto; /* Increased margin */
+    background-color: #FFFFFF;
+    border-radius: 15px; /* More rounded corners */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* Softer, wider shadow */
+    transition: transform 0.3s ease-out; /* Transition for potential future effects */
 }
 
+/* Individual Content Sections (Card-like design) */
 .content-section {
-    padding: 20px;
-    margin-bottom: 30px; /* Space between sections */
-    border-left: 5px solid #FF0000; /* Red accent border */
-    background-color: #F8F8F8; /* Light grey background for sections */
-    border-radius: 5px;
-    color: #333333;
+    padding: 35px; /* More internal padding */
+    margin-bottom: 50px; /* More space between sections */
+    background-color: #FFFFFF; /* Each section is white, contrasting with body bg */
+    border-radius: 12px; /* Rounded corners for the cards */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Subtle shadow for card lift effect */
+    border: 1px solid #E0E0E0; /* Light border for definition */
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.content-section:last-child {
+    margin-bottom: 0;
+}
+
+.content-section:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* More pronounced shadow on hover */
 }
 
 .content-section h2 {
-    color: #FF0000; /* Red headings */
+    color: #FF0000;
+    font-size: 2.5em; /* Larger section titles */
     margin-top: 0;
-    font-size: 2em;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #EEEEEE; /* Lighter, cleaner separator */
+    font-weight: 700;
 }
 
 .content-section p {
-    line-height: 1.6;
+    font-size: 1.15em; /* Slightly larger paragraph text */
+    color: #555555;
+    line-height: 1.8; /* Increased line height for readability */
 }
 
-/* Responsive Design (Basic) */
+/* --- Responsive Design Adjustments (updated for new font/spacing) --- */
+@media (max-width: 1200px) {
+    .sections-container {
+        padding: 30px;
+        margin: 30px auto;
+    }
+}
+
+@media (max-width: 992px) {
+    .header-title {
+        font-size: 3.2em;
+    }
+    .navigation ul {
+        gap: 25px;
+    }
+    .sections-container {
+        padding: 25px;
+        margin: 25px auto;
+    }
+    .content-section {
+        padding: 30px;
+        margin-bottom: 40px;
+    }
+    .content-section h2 {
+        font-size: 2.2em;
+    }
+}
+
 @media (max-width: 768px) {
     .header-title {
-        font-size: 2.2em;
+        font-size: 2.5em;
+        letter-spacing: 1px;
+    }
+    .navigation {
+        padding: 12px 0;
     }
     .navigation ul {
         flex-direction: column;
         align-items: center;
+        gap: 8px; /* Slightly less gap for vertical stack */
     }
-    .navigation li {
-        margin: 5px 0;
+    .navigation a {
+        padding: 10px 25px;
+        width: 90%; /* Wider touch targets */
+        font-size: 1.1em;
     }
     .sections-container {
-        padding: 15px;
-        margin: 15px auto;
+        padding: 18px;
+        margin: 18px auto;
+        border-radius: 8px; /* Keep some rounding */
+    }
+    .content-section {
+        padding: 25px;
+        margin-bottom: 30px;
+        border-radius: 8px;
+    }
+    .content-section h2 {
+        font-size: 1.8em;
+    }
+    .content-section p {
+        font-size: 1em;
+    }
+    .loading-logo {
+        max-width: 150px;
+    }
+    .book-loader {
+        width: 100px;
+        height: 70px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-title {
+        font-size: 2em;
+    }
+    .loading-animation {
+        gap: 20px;
+    }
+    .book-loader {
+        width: 80px;
+        height: 55px;
+    }
+    .loading-logo {
+        max-width: 120px;
+    }
+    .sections-container {
+        padding: 10px;
+        margin: 10px auto;
+    }
+    .content-section {
+        padding: 20px;
+    }
+    .content-section h2 {
+        font-size: 1.5em;
     }
 }
