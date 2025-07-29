@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STUDY§CORE - Profile</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-animation">
+            <div class="book-loader"><div class="filling-liquid"></div></div>
+            <img src="studycore-logo.png" alt="STUDY§CORE Logo" class="loading-logo">
+        </div>
+    </div>
+
+    <div id="main-content" class="main-content hidden">
+        <header class="header">
+            <button class="hamburger-menu" id="hamburger-menu" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <h1 class="header-title">
+                <span class="header-study">STUDY</span><span class="header-core">§CORE</span>
+            </h1>
+        </header>
+
+        <nav class="navigation" id="main-navigation">
+            <ul>
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="notes.html"><i class="fas fa-book"></i> Notes</a></li>
+                <li><a href="videos.html"><i class="fas fa-video"></i> Videos</a></li>
+                <li><a href="chat-assistant.html"><i class="fas fa-comments"></i> Chat Assistant</a></li>
+                <li><a href="biography.html"><i class="fas fa-user-tie"></i> Bio</a></li>
+                <li><a href="account.html"><i class="fas fa-user-circle"></i> Account</a></li>
+            </ul>
+        </nav>
+
+        <main class="sections-container">
+            <section class="content-section">
+                <h2>Your Profile</h2>
+                <p>View and update your public profile information, academic progress, and achievements.</p>
+
+                <div style="background-color: #f8f8f8; border-radius: 8px; padding: 25px; margin-top: 20px; text-align: center;">
+                    <img src="https://via.placeholder.com/120" alt="Profile Picture" style="border-radius: 50%; width: 120px; height: 120px; object-fit: cover; margin-bottom: 15px; border: 3px solid #FF0000;">
+                    <h3 style="margin-bottom: 5px;">Jane Doe</h3>
+                    <p style="color: #666; margin-bottom: 15px;">Student ID: SC12345</p>
+                    <button style="background-color: #000000; color: white; padding: 8px 15px; border: none; border-radius: 5px; cursor: pointer;">Upload New Photo</button>
+                </div>
+
+                <div style="background-color: #f8f8f8; border-radius: 8px; padding: 25px; margin-top: 20px;">
+                    <h3>Academic Progress</h3>
+                    <p><strong>Current Batch:</strong> Morning Study Batch (Physics, Chem, Math)</p>
+                    <p><strong>Courses Completed:</strong> 5</p>
+                    <p><strong>Overall Score:</strong> 85%</p>
+                    <p><strong>Achievements:</strong> Top Learner in Biology Quiz (July 2025)</p>
+                    <button style="background-color: #FF0000; color: white; padding: 8px 15px; border: none; border-radius: 5px; cursor: pointer; margin-top: 10px;">View Detailed Progress</button>
+                </div>
+
+                <div style="background-color: #f8f8f8; border-radius: 8px; padding: 25px; margin-top: 20px;">
+                    <h3>Contact Preferences</h3>
+                    <label style="display: block; margin-bottom: 10px;">
+                        <input type="checkbox" checked> Receive Email Notifications
+                    </label>
+                    <label style="display: block;">
+                        <input type="checkbox"> Receive SMS Alerts
+                    </label>
+                </div>
+
+            </section>
+        </main>
+
+        <nav class="bottom-navigation">
+            <ul>
+                <li><a href="index.html"><i class="fas fa-home"></i><span class="nav-text">Home</span></a></li>
+                <li><a href="batches.html"><i class="fas fa-users"></i><span class="nav-text">Batches</span></a></li>
+                <li><a href="store.html"><i class="fas fa-store"></i><span class="nav-text">Store</span></a></li>
+                <li><a href="chats-messages.html"><i class="fas fa-comments"></i><span class="nav-text">Chats</span></a></li>
+                <li><a href="profile.html"><i class="fas fa-user"></i><span class="nav-text">Profile</span></a></li>
+            </ul>
+        </nav>
+    </div>
+</body>
+</html>
