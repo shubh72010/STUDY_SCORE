@@ -36,10 +36,11 @@ body {
 }
 .main-content.hidden { display: none; }
 
-/* --- Header Section --- */
+/* --- Header Section (adjusted for hamburger button) --- */
 .header {
     background-color: #000000; padding: 30px 0; text-align: center;
     border-bottom: 5px solid #FF0000; box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+    position: relative; /* Needed for positioning hamburger button */
 }
 .header-title {
     margin: 0; font-size: 4em; letter-spacing: 4px; text-transform: uppercase; font-weight: 700;
@@ -47,10 +48,35 @@ body {
 .header-study { color: #FF0000; }
 .header-core { color: #FFFFFF; }
 
-/* --- Top Navigation Bar --- */
+/* Hamburger Menu Button Styling (visible only on small screens) */
+.hamburger-menu {
+    display: none; /* Hidden by default on large screens */
+    position: absolute;
+    left: 20px; /* Position on the left side of the header */
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #FFFFFF; /* White icon */
+    font-size: 2em; /* Large icon */
+    cursor: pointer;
+    z-index: 1001; /* Ensure it's above other elements in header */
+    padding: 10px;
+    transition: color 0.3s ease;
+}
+.hamburger-menu:hover {
+    color: #FF0000; /* Red on hover */
+}
+
+
+/* --- Top Navigation Bar (adjusted for hamburger menu) --- */
 .navigation {
-    background-color: #222222; padding: 18px 0; text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25); position: sticky; top: 0; z-index: 900;
+    background-color: #222222;
+    padding: 18px 0;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+    position: sticky; top: 0; z-index: 900;
+    /* transition: all 0.3s ease-in-out; */ /* Add this if you want smooth collapse */
 }
 .navigation ul { list-style: none; padding: 0; margin: 0; display: flex; justify-content: center; flex-wrap: wrap; gap: 35px; }
 .navigation a {
@@ -134,9 +160,69 @@ body {
 /* .bottom-navigation a.active { color: #FF0000; } */
 
 
-/* --- Responsive Design Adjustments --- */
+/* --- Responsive Design Adjustments (Hamburger Menu Logic) --- */
 @media (max-width: 992px) {
-    .header-title { font-size: 3.2em; } .navigation ul { gap: 25px; }
+    /* Header adjustments for hamburger button */
+    .header {
+        display: flex; /* Use flexbox for header content */
+        justify-content: center; /* Center title by default */
+        align-items: center;
+        padding: 20px 0; /* Reduced padding */
+    }
+    .hamburger-menu {
+        display: block; /* Show hamburger menu button */
+    }
+    .header-title {
+        font-size: 2.8em; /* Adjusted font size for title */
+        margin-left: 50px; /* Push title slightly to the right of hamburger */
+    }
+
+    /* Navigation (Top Menu) - Hidden by default on small screens */
+    .navigation {
+        position: fixed; /* Fixed position for overlay */
+        top: 0; /* Align with top */
+        left: -100%; /* Start off-screen to the left */
+        width: 70%; /* Take 70% of screen width */
+        height: 100%; /* Full height */
+        background-color: #222222; /* Dark background */
+        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.4); /* Shadow on the right edge */
+        flex-direction: column; /* Stack links vertically */
+        align-items: flex-start; /* Align links to the left */
+        padding-top: 80px; /* Space for header above */
+        transition: left 0.3s ease-in-out; /* Smooth slide-in/out */
+        z-index: 999; /* Below loading screen, above main content */
+        overflow-y: auto; /* Enable scrolling if many items */
+    }
+    .navigation.active {
+        left: 0; /* Slide in from the left */
+    }
+    .navigation ul {
+        flex-direction: column; /* Stack list items */
+        align-items: flex-start; /* Align list items to start */
+        gap: 15px; /* Space between links */
+        width: 100%; /* Full width for list items */
+    }
+    .navigation li {
+        width: 100%; /* Make list items take full width */
+        text-align: left; /* Align text to left */
+        padding-left: 20px; /* Indent links */
+    }
+    .navigation a {
+        width: calc(100% - 40px); /* Adjust width for padding */
+        padding: 12px 0; /* More vertical padding */
+        font-size: 1.1em;
+        border-radius: 0; /* Remove pill shape for side menu */
+        border: none; /* No border */
+        justify-content: flex-start; /* Align icon and text to start */
+    }
+    .navigation a:hover, .navigation a:focus {
+        background-color: #FF0000;
+        transform: none; /* No lift effect for side menu */
+        box-shadow: none; /* No shadow */
+    }
+
+
+    /* Other responsive adjustments (unchanged, just re-ordering for clarity) */
     .sections-container { padding: 15px; margin: 15px auto; }
     .cards-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
     .ui-card { padding: 20px; gap: 10px; }
@@ -146,10 +232,15 @@ body {
 }
 
 @media (max-width: 768px) {
-    .header-title { font-size: 2.5em; letter-spacing: 1px; }
-    .navigation { padding: 12px 0; }
-    .navigation ul { flex-direction: column; align-items: center; gap: 8px; }
-    .navigation a { padding: 10px 25px; width: 90%; font-size: 1.1em; }
+    .header-title { font-size: 2.2em; letter-spacing: 1px; margin-left: 40px; } /* Adjust for smaller screens */
+    .hamburger-menu { left: 15px; font-size: 1.8em; } /* Smaller button */
+
+    /* Navigation smaller screen specific adjustments */
+    .navigation { width: 80%; /* Wider side menu */ }
+    .navigation ul { gap: 10px; } /* Smaller gap */
+    .navigation a { font-size: 1em; padding: 10px 0; }
+
+
     .sections-container { padding: 10px; margin: 10px auto; border-radius: 8px; }
     .cards-grid { grid-template-columns: 1fr; gap: 15px; }
     .ui-card { padding: 18px; }
@@ -161,7 +252,9 @@ body {
 }
 
 @media (max-width: 480px) {
-    .header-title { font-size: 2em; } .loading-animation { gap: 20px; }
+    .header-title { font-size: 1.8em; margin-left: 30px; }
+    .hamburger-menu { left: 10px; font-size: 1.6em; }
+    .loading-animation { gap: 20px; }
     .book-loader { width: 80px; height: 55px; } .loading-logo { max-width: 120px; }
     .sections-container { padding: 5px; margin: 5px auto; }
     .ui-card { padding: 15px; }
