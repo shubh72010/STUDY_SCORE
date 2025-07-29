@@ -1,0 +1,100 @@
+<div id="loading-screen">
+<div id="logo-container">STUDY<span style="color: red;">§</span>CORE</div>
+<div id="loading-animation">
+<div id="book"></div>
+<div id="liquid"></div>
+</div>
+<div id="loading-text">Loading...</div>
+</div>
+<div id="main-content" style="display: none;">
+<h1>Welcome to STUDY§CORE!</h1>
+</div>
+<style>
+#loading-screen {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: linear-gradient(to bottom right, white, red, black);
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+z-index: 1000;
+color: black; /* Default text color */
+}
+#logo-container {
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px red, 0 0 20px black; /* Initial glow effect */
+}
+
+#loading-animation {
+    width: 80px;
+    height: 60px;
+    position: relative;
+    margin-bottom: 15px;
+}
+
+#book {
+    width: 80px;
+    height: 50px;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 5px 5px 2px 2px;
+    position: absolute;
+    bottom: 0;
+}
+
+#liquid {
+    width: 76px;
+    height: 0;
+    background-color: red;
+    position: absolute;
+    bottom: 2px;
+    left: 2px;
+    border-radius: 3px 3px 1px 1px;
+    animation: fillBook 2s infinite alternate;
+}
+
+@keyframes fillBook {
+    0% {
+        height: 0%;
+    }
+    100% {
+        height: 90%;
+    }
+}
+
+#loading-text {
+    font-size: 1.2em;
+}
+
+/* Style for the glowing effect */
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 5px red, 0 0 10px black;
+    }
+    50% {
+        text-shadow: 0 0 15px red, 0 0 25px black;
+    }
+    100% {
+        text-shadow: 0 0 5px red, 0 0 10px black;
+    }
+}
+
+#logo-container {
+    animation: glow 1.5s infinite alternate;
+}
+
+</style>
+<script>
+// Simulate loading process
+setTimeout(function() {
+document.getElementById('loading-screen').style.display = 'none';
+document.getElementById('main-content').style.display = 'block';
+}, 3000); // Adjust the time (in milliseconds) as needed
+</script>
+  
