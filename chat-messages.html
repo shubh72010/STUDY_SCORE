@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STUDY§CORE - Chats</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-animation">
+            <div class="book-loader"><div class="filling-liquid"></div></div>
+            <img src="studycore-logo.png" alt="STUDY§CORE Logo" class="loading-logo">
+        </div>
+    </div>
+
+    <div id="main-content" class="main-content hidden">
+        <header class="header">
+            <button class="hamburger-menu" id="hamburger-menu" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <h1 class="header-title">
+                <span class="header-study">STUDY</span><span class="header-core">§CORE</span>
+            </h1>
+        </header>
+
+        <nav class="navigation" id="main-navigation">
+            <ul>
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="notes.html"><i class="fas fa-book"></i> Notes</a></li>
+                <li><a href="videos.html"><i class="fas fa-video"></i> Videos</a></li>
+                <li><a href="chat-assistant.html"><i class="fas fa-comments"></i> Chat Assistant</a></li>
+                <li><a href="biography.html"><i class="fas fa-user-tie"></i> Bio</a></li>
+                <li><a href="account.html"><i class="fas fa-user-circle"></i> Account</a></li>
+            </ul>
+        </nav>
+
+        <main class="sections-container">
+            <section class="content-section">
+                <h2>Your Chats & Messages</h2>
+                <p>Access your conversations with instructors, fellow students, and support staff here.</p>
+
+                <div style="background-color: #f8f8f8; border-radius: 8px; padding: 20px; margin-top: 20px;">
+                    <h3 style="margin-bottom: 15px;">Recent Conversations:</h3>
+                    <div style="display: flex; align-items: center; padding: 10px; border-bottom: 1px solid #eee; cursor: pointer;">
+                        <img src="https://via.placeholder.com/40" alt="User Avatar" style="border-radius: 50%; width: 40px; height: 40px; object-fit: cover; margin-right: 15px;">
+                        <div>
+                            <h4 style="margin: 0;">Prof. M. Sharma</h4>
+                            <p style="margin: 0; font-size: 0.9em; color: #666;">Last message: "Your query on thermodynamics has been resolved." <span style="float: right;">10:30 AM</span></p>
+                        </div>
+                    </div>
+                    <div style="display: flex; align-items: center; padding: 10px; border-bottom: 1px solid #eee; cursor: pointer;">
+                        <img src="https://via.placeholder.com/40" alt="User Avatar" style="border-radius: 50%; width: 40px; height: 40px; object-fit: cover; margin-right: 15px;">
+                        <div>
+                            <h4 style="margin: 0;">Batch A - Chemistry Group</h4>
+                            <p style="margin: 0; font-size: 0.9em; color: #666;">Last message: "Reminder: Quiz on organic chemistry tomorrow!" <span style="float: right;">Yesterday</span></p>
+                        </div>
+                    </div>
+                    <div style="display: flex; align-items: center; padding: 10px; cursor: pointer;">
+                        <img src="https://via.placeholder.com/40" alt="User Avatar" style="border-radius: 50%; width: 40px; height: 40px; object-fit: cover; margin-right: 15px;">
+                        <div>
+                            <h4 style="margin: 0;">Support Team</h4>
+                            <p style="margin: 0; font-size: 0.9em; color: #666;">Last message: "We've updated your subscription." <span style="float: right;">2 days ago</span></p>
+                        </div>
+                    </div>
+                </div>
+
+                <p style="margin-top: 30px; text-align: center;">Click on a chat to view the full conversation history.</p>
+            </section>
+        </main>
+
+        <nav class="bottom-navigation">
+            <ul>
+                <li><a href="index.html"><i class="fas fa-home"></i><span class="nav-text">Home</span></a></li>
+                <li><a href="batches.html"><i class="fas fa-users"></i><span class="nav-text">Batches</span></a></li>
+                <li><a href="store.html"><i class="fas fa-store"></i><span class="nav-text">Store</span></a></li>
+                <li><a href="chats-messages.html"><i class="fas fa-comments"></i><span class="nav-text">Chats</span></a></li>
+                <li><a href="profile.html"><i class="fas fa-user"></i><span class="nav-text">Profile</span></a></li>
+            </ul>
+        </nav>
+    </div>
+</body>
+</html>
