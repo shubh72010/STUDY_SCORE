@@ -1,0 +1,217 @@
+/* Basic Reset & Body Styling */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #000000; /* Primary black background for the entire page */
+    color: #FFFFFF; /* Default text color for the body */
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* --- Loading Screen Styles --- */
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000000; /* Black background for loading screen */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure it's on top */
+}
+
+.loading-screen.hidden {
+    display: none; /* Hide the loading screen when content is loaded */
+}
+
+.loading-animation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px; /* Space between loader and logo */
+}
+
+/* Book Loader Animation (simplified for now, will enhance) */
+.book-loader {
+    width: 100px; /* Adjust size as needed */
+    height: 70px;
+    position: relative;
+    transform-style: preserve-3d;
+    perspective: 800px;
+}
+
+.page {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    background-color: #FFFFFF; /* White pages */
+    border: 2px solid #FF0000; /* Red border */
+    transform-origin: left center;
+    transition: transform 0.5s ease-in-out;
+}
+
+.page-left {
+    left: 0;
+    border-right: none;
+}
+
+.page-right {
+    right: 0;
+    border-left: none;
+}
+
+.spine {
+    position: absolute;
+    width: 10px;
+    height: 100%;
+    background-color: #FF0000; /* Red spine */
+    left: calc(50% - 5px);
+    z-index: 1;
+}
+
+.filling-liquid {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0; /* Starts empty */
+    background-color: #FF0000; /* Red liquid */
+    animation: fillBook 2s linear forwards infinite; /* Animation will fill the book */
+    transform-origin: bottom;
+    z-index: 2; /* Ensure liquid is above pages */
+}
+
+/* Keyframe animation for filling the book */
+@keyframes fillBook {
+    0% { height: 0; }
+    100% { height: 100%; }
+}
+
+/* Placeholder for your logo */
+.loading-logo {
+    max-width: 150px; /* Adjust size */
+    height: auto;
+    /* You'll add your actual logo image here */
+}
+
+/* --- Main Content Styles --- */
+.main-content {
+    background-color: #FFFFFF; /* Main content area white */
+    min-height: 100vh; /* Ensure it takes full viewport height */
+    color: #333333; /* Default text color for main content */
+}
+
+.main-content.hidden {
+    display: none; /* Hide main content until loaded */
+}
+
+/* Header Styling */
+.header {
+    background-color: #000000; /* Black header background */
+    padding: 20px 0;
+    text-align: center;
+    border-bottom: 3px solid #FF0000; /* Red border at the bottom */
+}
+
+.header-title {
+    margin: 0;
+    font-size: 3em; /* Large font for the title */
+    letter-spacing: 2px;
+}
+
+.header-study {
+    color: #FF0000; /* Red for 'STUDY' */
+    font-weight: bold;
+}
+
+.header-core {
+    color: #FFFFFF; /* White for '§CORE' */
+    font-weight: bold;
+}
+
+/* Navigation Bar */
+.navigation {
+    background-color: #333333; /* Dark grey for navigation */
+    padding: 10px 0;
+    text-align: center;
+    border-bottom: 2px solid #FF0000;
+}
+
+.navigation ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+}
+
+.navigation li {
+    margin: 0 15px;
+}
+
+.navigation a {
+    text-decoration: none;
+    color: #FFFFFF; /* White links */
+    font-weight: bold;
+    font-size: 1.1em;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.navigation a:hover {
+    background-color: #FF0000; /* Red background on hover */
+    color: #FFFFFF;
+}
+
+/* Content Sections */
+.sections-container {
+    padding: 20px;
+    max-width: 960px; /* Max width for content */
+    margin: 20px auto; /* Center content with margin */
+    background-color: #FFFFFF; /* White background for content */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.content-section {
+    padding: 20px;
+    margin-bottom: 30px; /* Space between sections */
+    border-left: 5px solid #FF0000; /* Red accent border */
+    background-color: #F8F8F8; /* Light grey background for sections */
+    border-radius: 5px;
+    color: #333333;
+}
+
+.content-section h2 {
+    color: #FF0000; /* Red headings */
+    margin-top: 0;
+    font-size: 2em;
+    margin-bottom: 15px;
+}
+
+.content-section p {
+    line-height: 1.6;
+}
+
+/* Responsive Design (Basic) */
+@media (max-width: 768px) {
+    .header-title {
+        font-size: 2.2em;
+    }
+    .navigation ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    .navigation li {
+        margin: 5px 0;
+    }
+    .sections-container {
+        padding: 15px;
+        margin: 15px auto;
+    }
+}
