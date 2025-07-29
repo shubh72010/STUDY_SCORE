@@ -6,6 +6,7 @@
     <title>STUDY§CORE - Elevate Your Learning</title>
     <link rel="stylesheet" href="style.css">
     <script defer src="script.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <div id="loading-screen" class="loading-screen">
@@ -24,36 +25,79 @@
 
         <nav class="navigation">
             <ul>
-                <li><a href="#notes">Notes</a></li>
-                <li><a href="#videos">Videos</a></li>
-                <li><a href="#chat-assistant">Chat Assistant</a></li>
-                <li><a href="#biography">Biography</a></li>
-                <li><a href="#account">Account</a></li>
+                <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="#notes"><i class="fas fa-book"></i> Notes</a></li>
+                <li><a href="#videos"><i class="fas fa-video"></i> Videos</a></li>
+                <li><a href="#chat-assistant"><i class="fas fa-comments"></i> Chat</a></li>
+                <li><a href="#biography"><i class="fas fa-user-tie"></i> Bio</a></li>
+                <li><a href="#account"><i class="fas fa-user-circle"></i> Account</a></li>
             </ul>
         </nav>
 
         <main class="sections-container">
-            <section id="notes" class="content-section">
-                <h2>Notes Section</h2>
-                <p>Access comprehensive study notes and organized summaries.</p>
+            <section class="top-banner">
+                <p>Looking to enhance your learning journey with STUDY§CORE?</p>
+                <button class="action-button">Explore Courses</button>
             </section>
-            <section id="videos" class="content-section">
-                <h2>Videos Section</h2>
-                <p>Explore a curated collection of educational videos and tutorials.</p>
-            </section>
-            <section id="chat-assistant" class="content-section">
-                <h2>Chat Assistant</h2>
-                <p>Get instant answers to your doubts with our intelligent AI chat assistant.</p>
-            </section>
-            <section id="biography" class="content-section">
-                <h2>Biography Section</h2>
-                <p>Learn about the visionaries behind STUDY§CORE.</p>
-            </section>
-            <section id="account" class="content-section">
-                <h2>Account Section</h2>
-                <p>Manage your profile, personalize settings, and track progress.</p>
-            </section>
+
+            <h3 class="section-heading">What are you looking for?</h3>
+            <div class="cards-grid">
+                <a href="#notes" class="ui-card">
+                    <div class="card-icon"><i class="fas fa-book-open"></i></div>
+                    <div class="card-text">
+                        <h3>Notes & Study Guides</h3>
+                        <p>Detailed notes for all subjects.</p>
+                    </div>
+                    <div class="card-arrow"><i class="fas fa-arrow-right"></i></div>
+                </a>
+
+                <a href="#videos" class="ui-card">
+                    <div class="card-icon"><i class="fas fa-video"></i></div>
+                    <div class="card-text">
+                        <h3>Video Lectures</h3>
+                        <p>Engaging video content for easy learning.</p>
+                    </div>
+                    <div class="card-arrow"><i class="fas fa-arrow-right"></i></div>
+                </a>
+
+                <a href="#chat-assistant" class="ui-card">
+                    <div class="card-icon"><i class="fas fa-comments"></i></div>
+                    <div class="card-text">
+                        <h3>Chat Assistant</h3>
+                        <p>Instant doubt resolution 24/7.</p>
+                    </div>
+                    <div class="card-arrow"><i class="fas fa-arrow-right"></i></div>
+                </a>
+
+                <a href="#biography" class="ui-card">
+                    <div class="card-icon"><i class="fas fa-user-graduate"></i></div>
+                    <div class="card-text">
+                        <h3>Our Experts & Mission</h3>
+                        <p>Learn about our dedicated team.</p>
+                    </div>
+                    <div class="card-arrow"><i class="fas fa-arrow-right"></i></div>
+                </a>
+
+                <a href="#account" class="ui-card">
+                    <div class="card-icon"><i class="fas fa-user-circle"></i></div>
+                    <div class="card-text">
+                        <h3>Account & Profile</h3>
+                        <p>Manage your settings and progress.</p>
+                    </div>
+                    <div class="card-arrow"><i class="fas fa-arrow-right"></i></div>
+                </a>
+            </div>
         </main>
+
+        <nav class="bottom-navigation">
+            <ul>
+                <li><a href="#home-section"><i class="fas fa-home"></i><span class="nav-text">Home</span></a></li>
+                <li><a href="#batches-section"><i class="fas fa-users"></i><span class="nav-text">Batches</span></a></li>
+                <li><a href="#store-section"><i class="fas fa-store"></i><span class="nav-text">Store</span></a></li>
+                <li><a href="#chats-section"><i class="fas fa-comments"></i><span class="nav-text">Chats</span></a></li>
+                <li><a href="#profile-section"><i class="fas fa-user"></i><span class="nav-text">Profile</span></a></li>
+            </ul>
+        </nav>
     </div>
 </body>
 </html>
